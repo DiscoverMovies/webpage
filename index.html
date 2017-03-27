@@ -14,7 +14,7 @@
   crossorigin="anonymous"></script>
     
   </head>
-  <body ng-app="mainApp" >
+  <body   ng-app="mainApp" >
 
     <div class="all">
       <div id="posi">
@@ -34,6 +34,7 @@
                         <img src="sid.jpg" alt="Avatar" class="avatar">
                       </div>
                       <div class="container1" ng-controller="loginControl">
+                        <p  class="incorrect" id="id03"> incorrect user name or password </p>
                         <label><b>Username</b></label>
                         <input type="text" placeholder="Enter Username" name="uname" ng-model="uname" required >
                         <label><b>Password</b></label>
@@ -54,9 +55,9 @@
           <div class="dis">
               <div class="luk">
                 <ul id ="unb">
-                  <li>HOME</li>
-                  <li>EXPLORE</li>
-                  <li>FORUMS</li>
+                  <li onclick="home()">HOME</li>
+                  <li  ng-model="navExplore" onclick="explore()">EXPLORE</li>
+                  <li  onclick="forum()">FORUMS</li>
                 </ul>
               </div>
             </div>
@@ -69,14 +70,13 @@
             <br>
             <br>
             <br>
+            <div id="id06" class="home" ng-model="homeDiv">
             <h2>
                 Recommendations
             </h2>
             <h3>
 
-<marquee scrollamount="10"
-direction="left"
-behavior="scroll">
+      <marquee scrollamount="10"direction="left"  behavior="scroll">
 .
 <img src="d.jpg">
 <img src="i.jpg">
@@ -93,6 +93,25 @@ behavior="scroll">
 <br>
 <h2>New arrivals
 </h2>
+</div>
+
+<div id="id04" class="explore" ng-model="exploreDiv">
+<h1> heyyy explore</h1>
+</div>
+
+<div id="id05" class="forum" ng-model="forumDiv">
+<div>
+    <ul>
+        <li>search </li>
+        <li>create new thread</li>
+
+    </ul>
+</div>
+<div>
+    threads
+</div>
+</div>
+
     
 <script>
 
@@ -118,6 +137,6 @@ window.onclick = function(event) {
 
 
 
-        </div> 
-    </body>
+    </div> 
+  </body>
 </html>

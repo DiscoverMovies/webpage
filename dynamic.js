@@ -1,8 +1,8 @@
 var base_url='http://localhost:8080';
 state = {
   remember_me:false,
-  login_value:false
-
+  login_value:false,
+  currentDiv:'id06'
 };
 
 angular.module('mainApp',[]).controller('loginControl',function($http,$scope,$window,$location){
@@ -24,11 +24,45 @@ angular.module('mainApp',[]).controller('loginControl',function($http,$scope,$wi
         if(data.status=="OK"){
         $('#id01').hide();
         state.login_value=true;
+        if(state.remember_me==true)
+          document.cookie=username+state.token;
         //$("#id07").attr('value', 'logout');
-        $('#id07').text('logout').button("refresh");
+        $('#id07').text('logout');//.button("refresh");
+       }
+       else
+       {
+        $('#id03').show();
        }
     });
 
 
   };
+
+
 });
+
+function explore(){
+   document.getElementById(state.currentDiv).style.display='none';
+    document.getElementById('id04').style.display='block';  
+     state.currentDiv='id04';
+
+
+}
+
+function forum(){
+
+   document.getElementById(state.currentDiv).style.display='none';
+    document.getElementById('id05').style.display='block';  
+     state.currentDiv='id05';
+
+
+}
+
+function home(){
+
+   document.getElementById(state.currentDiv).style.display='none';
+    document.getElementById('id06').style.display='block';  
+     state.currentDiv='id06';
+
+
+}

@@ -277,3 +277,19 @@ span.psw {
        width: 100%;
     }
 }
+
+p.incorrect{
+    display:none;
+    color:red;
+}
+
+.forum{
+    display: none;
+}
+
+.explore{
+    display: none;
+}
+.home{
+    display: block;
+}
