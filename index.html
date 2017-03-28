@@ -1,78 +1,66 @@
 <html>
-    <head>
-        <link rel="stylesheet" href = "styles.css"/>
-        <title>DISCOVER MOVIES</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
+  <head >
+    <link rel="stylesheet" href = "styles.css"/>
+    <title>DISCOVER MOVIES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="dynamic.js"></script>
+    <script type="text/javascript"> src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"</script>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    
+  </head>
+  <body   ng-app="mainApp" >
 
-        <div class="all">
-           <div id="posi">
-                <div class="my-container">
-                    <div class="search-form" >
-                    <div class="ins" ">
-                            <h1> <font face="Comic Sans MS" size="6" style="font-size: 1.5em;">Discover Movies </font>
-                            </h1> 
-                        <form id="par">
-                            <input type="text" name="search" placeholder="Search..">
-   <!--                         <button type="button" onclick="alert('Sign in!')">Sign in</button>    -->
-
-
-
-
-
-
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="sid.jpg" alt="Avatar" class="avatar">
-    </div>
-
-    <div class="container1">
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <input type="checkbox" checked="checked"> Remember me
-    </div>
-
-    <div class="container1" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-</div>
-
-
-
-
-
-
-
-
-                        </form>
-                    </div>
-                            
-                            </div>
-                </div>
-
-                    <div class="dis">
-                    <div class="luk">
-                    <ul id ="unb">
-                    <li>HOME</li>
-                    <li>EXPLORE</li>
-                    <li>FORUMS</li>
-                    </ul>
-                    </div>
-                    </div>
+    <div class="all">
+      <div id="posi">
+        <div class="my-container">
+          <div class="search-form" >
+            <div class="ins" ">
+                <h1> <font face="Comic Sans MS" size="6" style="font-size: 1.5em;">Discover Movies </font>
+                </h1> 
+                <form id="par">
+                  <input type="text" name="search" placeholder="Search..">
+   <!--  <button type="button" onclick="alert('Sign in!')">Sign in</button>    -->
+                  <button id="id07" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+                  <div id="id01" class="modal" ng-model="modal">
+                    <form class="modal-content animate">
+                      <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <img src="sid.jpg" alt="Avatar" class="avatar">
+                      </div>
+                      <div class="container1" ng-controller="loginControl">
+                        <p  class="incorrect" id="id03"> incorrect user name or password </p>
+                        <label><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" ng-model="uname" required >
+                        <label><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" ng-model="psw" required>
+                        <button type="submit" ng-model="submit" ng-click="login()">Login</button>
+                        <input type="checkbox" ng-checked="false" ng-model="checkbox"> Remember me
+                     </div>
+                     <div class="container1" style="background-color:#f1f1f1">
+                       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                     </div>
+                    </form>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="dis">
+              <div class="luk">
+                <ul id ="unb">
+                  <li onclick="home()">HOME</li>
+                  <li  ng-model="navExplore" onclick="explore()">EXPLORE</li>
+                  <li  onclick="forum()">FORUMS</li>
+                </ul>
+              </div>
+            </div>
             </div>
             <br>
             <br>
@@ -82,14 +70,13 @@
             <br>
             <br>
             <br>
+            <div id="id06" class="home" ng-model="homeDiv">
             <h2>
                 Recommendations
             </h2>
             <h3>
 
-<marquee scrollamount="10"
-direction="left"
-behavior="scroll">
+      <marquee scrollamount="10"direction="left"  behavior="scroll">
 .
 <img src="d.jpg">
 <img src="i.jpg">
@@ -106,13 +93,28 @@ behavior="scroll">
 <br>
 <h2>New arrivals
 </h2>
+</div>
+
+<div id="id04" class="explore" ng-model="exploreDiv">
+<h1> heyyy explore</h1>
+</div>
+
+<div id="id05" class="forum" ng-model="forumDiv">
+<div>
+    <ul>
+        <li>search </li>
+        <li>create new thread</li>
+
+    </ul>
+</div>
+<div>
+    threads
+</div>
+</div>
+
     
-
-
-
-
 <script>
-// Get the modal
+
 var modal = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
@@ -121,6 +123,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
 </script>
 
 
@@ -130,6 +133,10 @@ window.onclick = function(event) {
 
 
 
-        </div> 
-    </body>
+
+
+
+
+    </div> 
+  </body>
 </html>
