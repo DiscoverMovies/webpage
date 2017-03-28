@@ -1,10 +1,9 @@
 body
 {
     margin:0;
-   
 }
 .all{
-     background-color:white; 
+    background-color:white;
     background-repeat:no-repeat;
     min-height:900px;
     background-size: cover;
@@ -15,12 +14,11 @@ font-size:20px;
 border:1px;
 transition: .35s ease-in;
 color: #eeeeee;
-
+font-family: cursive;
 }
 .dis li:hover{
     background: lightcoral;
 }
-
 h1{     
         color:  #c01730;
         margin-top: .5%;
@@ -37,14 +35,14 @@ h1{
 .ins{
     padding-top: 4px;
 
-    }
+}
 ul#log li{
     display:inline;
-         }
+}
 
 ul#log img{
     width: 20px;
-          }
+}
 		
 ul#unb li	{
     display:inline;
@@ -52,10 +50,13 @@ ul#unb li	{
     padding-top: .5%;
     padding-bottom: .5%;
     margin:1%;
-    
 }
 #unb{
     text-align: center;
+    margin-top: 6px;
+}
+#unb a{
+    text-decoration:  none;
 }
 h2{
     text-align: left;
@@ -65,8 +66,8 @@ h2{
 .a{
     display: block;
     text-align: center;
-    
 }
+
 #posi
 {
   position: fixed;
@@ -74,6 +75,7 @@ h2{
   right:0;
   left:0;
   z-index: 999;
+  background-color: white;
 }
 /*
     font-family: sans;
@@ -113,12 +115,12 @@ b{
     height: 100px;
 }
 .luk{
-    height:50px;
+    height:40px;
     overflow: visible;
     padding-top:.5px;
     background-color:  #c01730;
-    font-style: absolute;
-
+   /* position: absolute;
+*/
 }
 
 input[type=text], input[type=password]  {
@@ -151,15 +153,6 @@ button
 .search-form{
    margin-left: 1em;
     }|
-
-
-
-
-
-
-
-
-
 
     input [type=text],input[type=password] {
     width: 100%;
@@ -295,3 +288,85 @@ p.incorrect{
 .home{
     display: block;
 }
+
+
+
+.image
+{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/*  text on hover     */
+ul.img-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul.img-list li {
+  display: inline-block;
+  height: 300px;
+  margin: 0 1em 1em 0;
+  position: relative;
+  width: 300px;
+}
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 300px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 300px;
+}
+
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/*
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 150px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 150px;
+  opacity: 0;
+}*/
+
+ul.img-list li:hover span.text-content {
+  opacity: 1;
+}
+
+
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 300px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 300px;
+  opacity: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+ span {
+              /*  text-decoration:underline;
+                color:blue;*/
+                cursor:pointer;
+            }

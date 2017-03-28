@@ -1,142 +1,138 @@
 <html>
-  <head >
-    <link rel="stylesheet" href = "styles.css"/>
-    <title>DISCOVER MOVIES</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="dynamic.js"></script>
-    <script type="text/javascript"> src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"</script>
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-    
-  </head>
-  <body   ng-app="mainApp" >
+    <head>
+    <style type="text/css">@charset "UTF-8"</style>
+        <link rel="stylesheet" href = "styles.css"/>
+        <title>DISCOVER MOVIES</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script src="dynamic.js"></script>
+        <script type="text/javascript"> src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"</script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    </head>
+    <body ng-app="mainApp" class="ng-scope">
+        <div class="all">
+            <div id="posi">
+                <div class="my-container">
+                    <div class="search-form" >
+                        <div class="ins" ">
+                            <h1> 
+                                <font face="Comic Sans MS" size="6" style="font-size: 1.5em;">Discover Movies </font>
+                            </h1> 
+                            <form id="par" class="ng-pristine ng-invalid ng-invalid-reqired">
+                                <input type="text" name="search" placeholder="Search..">
+                                <!--  <button type="button" onclick="alert('Sign in!')">Sign in</button>    -->
+                                <button id="id07" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
-    <div class="all">
-      <div id="posi">
-        <div class="my-container">
-          <div class="search-form" >
-            <div class="ins" ">
-                <h1> <font face="Comic Sans MS" size="6" style="font-size: 1.5em;">Discover Movies </font>
-                </h1> 
-                <form id="par">
-                  <input type="text" name="search" placeholder="Search..">
-   <!--  <button type="button" onclick="alert('Sign in!')">Sign in</button>    -->
-                  <button id="id07" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-                  <div id="id01" class="modal" ng-model="modal">
-                    <form class="modal-content animate">
-                      <div class="imgcontainer">
-                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                        <img src="sid.jpg" alt="Avatar" class="avatar">
-                      </div>
-                      <div class="container1" ng-controller="loginControl">
-                        <p  class="incorrect" id="id03"> incorrect user name or password </p>
-                        <label><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" ng-model="uname" required >
-                        <label><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" ng-model="psw" required>
-                        <button type="submit" ng-model="submit" ng-click="login()">Login</button>
-                        <input type="checkbox" ng-checked="false" ng-model="checkbox"> Remember me
-                     </div>
-                     <div class="container1" style="background-color:#f1f1f1">
-                       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                        <span class="psw">Forgot <a href="#">password?</a></span>
-                     </div>
-                    </form>
-                  </div>
-                </form>
-              </div>
+                                <div id="id01" class="modal ng-pristine ng-untouched ng-valid ng-empty" ng-model ="modal">
+                                  
+                                 <<!-- <form class="modal-content animate" action="/action_page.php"> -->
+                                    <div class="imgcontainer">
+                                      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                      <img src="sid.jpg" alt="Avatar" class="avatar">
+                                    </div>
+
+                                    <div class="container1 ng-scope" ng-controller="loginControl">
+                                         <p class="incorrect" id="id03"> incorrect user name or password </p>
+                                      <label><b>Username</b></label>
+                                      <input type="text" placeholder="Enter Username" name="uname" required>
+
+                                      <label><b>Password</b></label>
+                                      <input type="password" placeholder="Enter Password" name="psw" required>
+                                        
+                                      <button type="submit" ng-model="submit" ng-click="login()" class="ng-pristine ng-untouched ng-valid ng-empty">Login</button>
+                                      <input type="checkbox" ng-checked="false" ng-model="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty"> Remember me
+                                    </div>
+
+                                    <div class="container1" style="background-color:#f1f1f1">
+                                      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                      <span class="psw">Forgot <a href="#">password?</a></span>
+                                    </div>
+                                  </form>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="dis">
+                    <div class="luk">
+                        <ul id ="unb">
+                           <a href="#"><li onclick="home()">HOME</li></a>
+                           <a href="#"><li ng-model="navExplore" onclick="explore()" class="ng-pristine ng-untouched ng-valid ng-empty">EXPLORE</li></a>
+                           <a href="#"><li onclick="forum()">FORUMS</li> </a>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="dis">
-              <div class="luk">
-                <ul id ="unb">
-                  <li onclick="home()">HOME</li>
-                  <li  ng-model="navExplore" onclick="explore()">EXPLORE</li>
-                  <li  onclick="forum()">FORUMS</li>
+            <br><br><br><br><br><br><br><br>
+            <div id="id06" class="home ng-pristine ng-untouched ng-valid ng-empty" ng-model="homeDiv" style="display: block;">
+                <h2>
+                    Recommendations
+                </h2>
+                <ul class="img-list">
+                  <li>
+                    <a href="http://nataliemac.com">
+                      <img src="i.jpg" width="300" height="300" />
+                      <span class="text-content"><span>Harry Potter</span></span>
+                    </a>
+                  </li>
                 </ul>
-              </div>
+                <br><br><br><br><br><br>
+                <h2>
+                    Trending
+                </h2>
+                <ul class="img-list">
+                  <li>
+                    <a href="http://nataliemac.com">
+                      <img src="t1.jpg" width="300" height="300" />
+                      <span class="text-content"><span>Place Name</span></span>
+                    </a>
+                  </li>
+                </ul>
+                <br><br><br><br><br><br>
+                <h2>
+                    New arrivals
+                </h2>
+                <ul class="img-list">
+                  <li>
+                    <a href="http://nataliemac.com">
+                      <img src="t2.jpg" width="300" height="300" />
+                      <span class="text-content"><span>Place Name</span></span>
+                    </a>
+                  </li>
+                </ul>
             </div>
+            <div id="id04" class="explore ng-pristine ng-untouched ng-valid ng-empty" ng-model="exploreDiv" style="display: none;">
+                <h1> heyyy explore</h1>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div id="id06" class="home" ng-model="homeDiv">
-            <h2>
-                Recommendations
-            </h2>
-            <h3>
 
-      <marquee scrollamount="10"direction="left"  behavior="scroll">
-.
-<img src="d.jpg">
-<img src="i.jpg">
-<img src="im.jpg">
-<img src="hi.jpg">
+            <div id="id05" class="forum ng-pristine ng-untouched ng-valid ng-empty" ng-model="forumDiv" style="display: none;">
+                <div>
+                    <ul>
+                        <li>search </li>
+                        <li>create new thread</li>
+                    </ul>
+                </div>
+                <div>
+                    threads
+                </div>
+            </div>
 
-</marquee>
-</h3>
-<h2>
-    Trending
-</h2>
-<br>
-<br>
-<br>
-<h2>New arrivals
-</h2>
-</div>
+            <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
 
-<div id="id04" class="explore" ng-model="exploreDiv">
-<h1> heyyy explore</h1>
-</div>
-
-<div id="id05" class="forum" ng-model="forumDiv">
-<div>
-    <ul>
-        <li>search </li>
-        <li>create new thread</li>
-
-    </ul>
-</div>
-<div>
-    threads
-</div>
-</div>
-
-    
-<script>
-
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-    </div> 
-  </body>
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            </script>
+        </div> 
+    </body>
 </html>
+
+
+
+
