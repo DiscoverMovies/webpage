@@ -3,6 +3,7 @@ state = {
   remember_me:false,
   login_value:false,
   currentDiv:'id06'
+
 };
 
 angular.module('mainApp',[]).controller('discover',function($http,$scope,$window,$location){
@@ -19,9 +20,9 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
         password: password
     },
     function(data, status){
-        console.log(data);
-        state.token=data.token;
+        
         if(data.status=="OK"){
+          state.token=data.token;
         $('#id01').hide();
         state.login_value=true;
         if(state.remember_me==true)
@@ -43,18 +44,15 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
     var phone=$scope.sphone;
     var email=$scope.semail;
     var rpassword=$scope.srpassword;
-    console.log({
-          username: username,
-          password: password,
-          email:email,
-          phone:phone
-      });
+   
     if(password!=rpassword){
-      $('id11').show();
+      $('#id11').show();
     }
     else{
-      var url=base_url+'/user/create';
 
+      var url=base_url+'/user/create';
+      if($scope.checkbox1==true)
+        state.remember_me=true;
       $.post(url,
         {
           username: username,
@@ -63,12 +61,51 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
           phone:phone
       },
       function(data, status){
-        console.log(data);
+        state.token=data.token;
+        $('#id10').hide();
+        state.login_value=true;
+        $('#id07').text('logout');
+         if(state.remember_me==true)
+          document.cookie=username+state.token;
 
       });
     
     }
   };
+
+  $scope.createforumform=function(){
+    if(state.login_value==true){
+      $('#id13').show();
+    }
+    else{
+       $('#id01').show();
+       $scope.login();
+       
+    }
+   
+    
+  };
+
+  $scope.createforum=function(){
+      var token=state.token;
+    var title=$scope.title;
+    var text=$scope.text;
+  
+    console.log(title,text,token);
+    var url=base_url+'/forum/create';
+
+    $.post(url,
+        {
+         
+         token:token,
+         title:title,
+         text:text
+      },
+      function(data, status){
+      console.log(data);
+      console.log(token);
+      });
+  }
 
 
 });

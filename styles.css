@@ -438,3 +438,12 @@ span.text-content {
         width: 100%;
     }
 }
+
+.form elements{
+    display: inline block;
+
+}
+.search{
+    width: 40;
+
+}
