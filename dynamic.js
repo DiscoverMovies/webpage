@@ -5,7 +5,7 @@ state = {
   currentDiv:'id06'
 };
 
-angular.module('mainApp',[]).controller('loginControl',function($http,$scope,$window,$location){
+angular.module('mainApp',[]).controller('discover',function($http,$scope,$window,$location){
   
   $scope.login=function(){
     var username=$scope.uname;
@@ -19,15 +19,14 @@ angular.module('mainApp',[]).controller('loginControl',function($http,$scope,$wi
         password: password
     },
     function(data, status){
+        console.log(data);
         state.token=data.token;
-        //$('#id01').css('display','none');
         if(data.status=="OK"){
         $('#id01').hide();
         state.login_value=true;
         if(state.remember_me==true)
           document.cookie=username+state.token;
-        //$("#id07").attr('value', 'logout');
-        $('#id07').text('logout');//.button("refresh");
+        $('#id07').text('logout');
        }
        else
        {
@@ -36,6 +35,39 @@ angular.module('mainApp',[]).controller('loginControl',function($http,$scope,$wi
     });
 
 
+  };
+
+  $scope.signup=function(){
+    var username=$scope.sname;
+    var password=$scope.spassword;
+    var phone=$scope.sphone;
+    var email=$scope.semail;
+    var rpassword=$scope.srpassword;
+    console.log({
+          username: username,
+          password: password,
+          email:email,
+          phone:phone
+      });
+    if(password!=rpassword){
+      $('id11').show();
+    }
+    else{
+      var url=base_url+'/user/create';
+
+      $.post(url,
+        {
+          username: username,
+          password: password,
+          email:email,
+          phone:phone
+      },
+      function(data, status){
+        console.log(data);
+
+      });
+    
+    }
   };
 
 
@@ -65,4 +97,9 @@ function home(){
      state.currentDiv='id06';
 
 
+}
+
+function signUpForm(){
+  document.getElementById('id01').style.display='none';
+  document.getElementById('id10').style.display='block';
 }

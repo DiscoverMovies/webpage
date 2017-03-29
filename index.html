@@ -11,7 +11,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     </head>
     <body ng-app="mainApp" class="ng-scope">
-        <div class="all">
+        <div class="all" ng-controller="discover">
             <div id="posi">
                 <div class="my-container">
                     <div class="search-form" >
@@ -32,13 +32,13 @@
                                       <img src="sid.jpg" alt="Avatar" class="avatar">
                                     </div>
 
-                                    <div class="container1 ng-scope" ng-controller="loginControl">
+                                    <div class="container1 ng-scope">
                                          <p class="incorrect" id="id03"> incorrect user name or password </p>
                                       <label><b>Username</b></label>
-                                      <input type="text" placeholder="Enter Username" name="uname" required>
+                                      <input type="text" placeholder="Enter Username" name="uname" ng-model="uname" required>
 
                                       <label><b>Password</b></label>
-                                      <input type="password" placeholder="Enter Password" name="psw" required>
+                                      <input type="password" placeholder="Enter Password" name="psw" ng-model="psw" required>
                                         
                                       <button type="submit" ng-model="submit" ng-click="login()" class="ng-pristine ng-untouched ng-valid ng-empty">Login</button>
                                       <input type="checkbox" ng-checked="false" ng-model="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty"> Remember me
@@ -46,6 +46,7 @@
 
                                     <div class="container1" style="background-color:#f1f1f1">
                                       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                       <button type="button" onclick="signUpForm()" class="sign-up">sign up</button>
                                       <span class="psw">Forgot <a href="#">password?</a></span>
                                     </div>
                                   </form>
@@ -84,7 +85,7 @@
                 <ul class="img-list">
                   <li>
                     <a href="http://nataliemac.com">
-                      <img src="t1.jpg" width="300" height="300" />
+                      <img src="im.jpg" width="300" height="300" />
                       <span class="text-content"><span>Place Name</span></span>
                     </a>
                   </li>
@@ -96,7 +97,7 @@
                 <ul class="img-list">
                   <li>
                     <a href="http://nataliemac.com">
-                      <img src="t2.jpg" width="300" height="300" />
+                      <img src="hi.jpg" width="300" height="300" />
                       <span class="text-content"><span>Place Name</span></span>
                     </a>
                   </li>
@@ -117,6 +118,44 @@
                     threads
                 </div>
             </div>
+            <div id="id10" class="signup-form">
+          
+  <span onclick="document.getElementById('id10').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="signup-content animate" >
+    <div class="container">
+       <div>
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Username" name="sname" ng-model="sname" required>
+      </div>
+
+      <div>
+      <label><b>Email</b></label>
+      <input type="text" placeholder="Email" name="semail" ng-model="semail" required>
+      </div>
+       <div>
+      <label><b>Phone</b></label>
+      <input type="text" placeholder="Phone no" name="sphone" ng-model="sphone" required>
+      </div>
+      <div>
+      <p class="password-unmatch" id="id11"> password do not match </p>
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Password" name="spassword"  ng-model="spassword" required>
+      </div>
+      <div>
+      <label><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="srpassword" ng-model="srpassword" required>
+      </div>
+      <input type="checkbox" checked="checked"> Remember me
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id10').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button"  ng-model="signUp" ng-click="signup()" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+
+  </div>
 
             <script>
             // Get the modal
