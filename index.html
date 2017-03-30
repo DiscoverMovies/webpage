@@ -110,16 +110,19 @@
             <div id="id05" class="forum ng-pristine ng-untouched ng-valid ng-empty" ng-model="forumDiv" style="display: none;">
                 <div class="form elements">
                   
-                  <input  type="text"  name="search" placeholder="search">
+                  <input  type="text"  name="search" placeholder="search" ng-model="searchforums" ng-enter="searchforum">
                   <div >
                   <button type="button"  class="create forum" ng-model="fcreate" ng-click="createforumform()">create forum</button>
                   </div>
-                  <div id="id13" class="forum_create" ng-model="createforums"style="display:none;">
+                  <div id="id13" class="forum_create" ng-model="createforums" style="display:none;">
                     <label>title</label>
                     <input type="text" name="title" ng-model="title">
                     <label>topic</label>
                     <input type="text" name="text" ng-model="text">
-                    <button type="button" ng-model="create" ng-click="createforum()" >create </button>
+
+
+                    <button type="button" ng-model="create" ng-click="createforum()" id="id14" >create</button>
+                    {{title}}
                   </div>
                    
                 </div>
@@ -165,7 +168,6 @@
       </div>
     </div>
   </form>
-
   </div>
 
             <script>

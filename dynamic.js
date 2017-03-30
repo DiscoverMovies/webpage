@@ -102,11 +102,43 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
          text:text
       },
       function(data, status){
-      console.log(data);
-      console.log(token);
+      if(status=="OK"){
+        $('id14').hide;
+      }
       });
-  }
+  };
 
+
+
+  /*$scope.searchforum=function(){
+    var url=base_url+'/forum/search';
+    var q=$scope.searchforums;
+     $.post(url,
+        {
+         
+         q:q
+      },
+      function(data, status){
+      console.log(data);
+     
+      });
+
+  }*/
+/*
+.directive('ng-enter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ng-enter);
+                });
+ 
+                event.preventDefault();
+            }
+        });
+    };
+});
+*/
 
 });
 
@@ -140,3 +172,22 @@ function signUpForm(){
   document.getElementById('id01').style.display='none';
   document.getElementById('id10').style.display='block';
 }
+
+
+/*angular.module('mainApp').directive('ng-enter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ng-enter);
+                });
+ 
+                event.preventDefault();
+            }
+        });
+    };
+
+});*/
+
+
+
