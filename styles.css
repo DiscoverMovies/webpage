@@ -441,9 +441,15 @@ span.text-content {
 
 .form elements{
     display: inline block;
+    margin-left: 5em;
 
 }
 .search{
     width: 40;
 
 }
+/*
+#formelements input [type=text],input[type=password] 
+{
+    margin-left: 5em;
+} */

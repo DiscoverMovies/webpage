@@ -104,6 +104,7 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
       function(data, status){
       if(status=="OK"){
         $('id14').hide;
+        
       }
       });
   };

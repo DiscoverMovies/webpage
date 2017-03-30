@@ -104,7 +104,39 @@
                 </ul>
             </div>
             <div id="id04" class="explore ng-pristine ng-untouched ng-valid ng-empty" ng-model="exploreDiv" style="display: none;">
-                <h1> heyyy explore</h1>
+                <h2> Comedy</h2>
+                <ul class="img-list">
+                  <li>
+                    <a href="http://nataliemac.com">
+                      <img src="t1.jpg" width="300" height="300" />
+                      <span class="text-content"><span>Beuty and the beast</span></span>
+                    </a>
+                  </li>
+                </ul>
+                <br><br><br><br><br><br>
+                <h2>
+                    Triller
+                </h2>
+                <ul class="img-list">
+                  <li>
+                    <a href="http://nataliemac.com">
+                      <img src="t2.jpg" width="300" height="300" />
+                      <span class="text-content"><span>Place Name</span></span>
+                    </a>
+                  </li>
+                </ul>
+                <br><br><br><br><br><br>
+                <h2>
+                    Horror
+                </h2>
+                <ul class="img-list">
+                  <li>
+                    <a href="http://nataliemac.com">
+                      <img src="t3.jpg" width="300" height="300" />
+                      <span class="text-content"><span>Place Name</span></span>
+                    </a>
+                  </li>
+                </ul>
             </div>
 
             <div id="id05" class="forum ng-pristine ng-untouched ng-valid ng-empty" ng-model="forumDiv" style="display: none;">
@@ -112,6 +144,7 @@
                   
                   <input  type="text"  name="search" placeholder="search" ng-model="searchforums" ng-enter="searchforum">
                   <div >
+
                   <button type="button"  class="create forum" ng-model="fcreate" ng-click="createforumform()">create forum</button>
                   </div>
                   <div id="id13" class="forum_create" ng-model="createforums" style="display:none;">
@@ -127,9 +160,16 @@
                    
                 </div>
 
-              
             </div>
 
+            <div id="id10" class="signup-form">          
+                <span onclick="document.getElementById('id10').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <form class="signup-content animate" >
+                    <div class="container">
+                        <div>
+                            <label><b>Username</b></label>
+                            <input type="text" placeholder="Username" name="sname" ng-model="sname" required>
+                        </div>
 
 
   <div id="id10" class="signup-form">
@@ -169,6 +209,7 @@
     </div>
   </form>
   </div>
+
 
             <script>
             // Get the modal
