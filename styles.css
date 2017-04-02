@@ -1,3 +1,5 @@
+
+<style type="text/css">@charset "UTF-8"</style>
 body
 {
     margin:0;
@@ -142,13 +144,7 @@ input[type=text], input[type=password]  {
 /*input[type=text]:focus {
     width: 100%;
 }*/
-button
-{   margin-left: 2em;
-    margin-top: 10px;
-    padding: .9em;
-    font-style: italic;
-    border-radius: 5px;
-} 
+
 
 .search-form{
    margin-left: 1em;
@@ -279,15 +275,15 @@ span.psw {
     }
 }
 
-p.incorrect{
+.incorrect{
     display:none;
     color:red;
 }
-p.password-unmatch{
+.password-unmatch{
     display:none;
     color:red;
 }
-}
+
 
 .forum{
     display: none;
@@ -445,7 +441,7 @@ span.text-content {
 
 }
 .search{
-    width: 40;
+    width:40;
 
 }
 /*
@@ -453,3 +449,5 @@ span.text-content {
 {
     margin-left: 5em;
 } */
+
+

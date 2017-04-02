@@ -8,9 +8,25 @@ state = {
 
 angular.module('mainApp',[]).controller('discover',function($http,$scope,$window,$location){
   
+
+
+  $scope.loginlogout=function(){
+      if(state.login_value==false)
+        document.getElementById('id01').style.display='block';
+      else{
+        state.remember_me=false;
+        state.login_value=false;
+        //state.token
+        $('#id07').text('login');
+
+      }
+  }
+
+
   $scope.login=function(){
     var username=$scope.uname;
     var password=$scope.psw;
+    
     var url=base_url+'/user/auth';
     if($scope.checkbox==true)
       state.remember_me=true;
@@ -23,18 +39,21 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
         
         if(data.status=="OK"){
           state.token=data.token;
-        $('#id01').hide();
-        state.login_value=true;
-        if(state.remember_me==true)
-          document.cookie=username+state.token;
-        $('#id07').text('logout');
+          $('#id01').hide();
+          state.login_value=true;
+          if(state.remember_me==true)
+            document.cookie=username+state.token;
+          $('#id07').text('logout');
+
+
+
        }
        else
-       {
-        $('#id03').show();
-       }
+        alert('wrong username or password');
+       // document.getElementById('id03').innerHTML = "Wrong keyword entry";
+       //$('#id03').show();
     });
-
+    //$('#id03').hide();
 
   };
 
@@ -74,26 +93,30 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
   };
 
   $scope.createforumform=function(){
+    var  url=base_url+'/forum/all';
+    $.get(url,function(data, status){
+        if(status=="OK")
+        console.log(data);
+      });
+    
+
     if(state.login_value==true){
       $('#id13').show();
     }
     else{
-       $('#id01').show();
-       $scope.login();
-       
+      
+   document.getElementById('id01').style.display='block';
+
     }
    
     
   };
 
   $scope.createforum=function(){
-      var token=state.token;
+    var token=state.token;
     var title=$scope.title;
     var text=$scope.text;
-  
-    console.log(title,text,token);
     var url=base_url+'/forum/create';
-
     $.post(url,
         {
          
@@ -102,9 +125,10 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
          text:text
       },
       function(data, status){
-      if(status=="OK"){
-        $('id14').hide;
-        
+      if(status=="success"){
+        $('#id14').hide;
+        $('#id16').show();
+
       }
       });
   };
