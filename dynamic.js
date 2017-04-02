@@ -93,14 +93,7 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
   };
 
   $scope.createforumform=function(){
-    var  url=base_url+'/forum/all';
-    $.get(url,function(data, status){
-        if(status=="OK")
-        console.log(data);
-      });
-    
-
-    if(state.login_value==true){
+      if(state.login_value==true){
       $('#id13').show();
     }
     else{
@@ -135,35 +128,31 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
 
 
 
-  /*$scope.searchforum=function(){
-    var url=base_url+'/forum/search';
-    var q=$scope.searchforums;
-     $.post(url,
-        {
-         
-         q:q
-      },
-      function(data, status){
-      console.log(data);
-     
-      });
+    $scope.forum=function ()
 
-  }*/
-/*
-.directive('ng-enter', function () {
-    return function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
-            if(event.which === 13) {
-                scope.$apply(function (){
-                    scope.$eval(attrs.ng-enter);
-                });
- 
-                event.preventDefault();
-            }
-        });
+    {
+        document.getElementById(state.currentDiv).style.display='none';
+        document.getElementById('id05').style.display='block';
+        state.currentDiv='id05';
+        var  url=base_url+'/forum/all';
+        $.get(
+            url,
+            {},
+            function(data,status) {
+                //var response=JSON.parse(JSON.stringify(data));
+                var $ul = $('#id05')
+                $.each(data.forum, function(idx,item){
+                    var author_username=item.author_username;
+                   var body= item.body;
+                    var id=item.id;
+                    var title=item.title;
+                        $ul.append('<li style="color:red">'+author_username+' '+body+' '+id+' '+title+'</li>');
+                    })
+
+            });
+
+
     };
-});
-*/
 
 });
 
@@ -175,14 +164,8 @@ function explore(){
 
 }
 
-function forum(){
-
-   document.getElementById(state.currentDiv).style.display='none';
-    document.getElementById('id05').style.display='block';  
-     state.currentDiv='id05';
 
 
-}
 
 function home(){
 

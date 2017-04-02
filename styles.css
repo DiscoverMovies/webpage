@@ -1,5 +1,5 @@
 
-<style type="text/css">@charset "UTF-8"</style>
+@charset "UTF-8";
 body
 {
     margin:0;
@@ -113,7 +113,7 @@ b{
 }
 .my-container
 {
-    background-color:solid white;
+    background-color:white;
     height: 100px;
 }
 .luk{
@@ -213,7 +213,7 @@ span.psw {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left:400;
+    left:400em;
     top: 0;
     width: 50%; /* Full width */
     height: 100%; /* Full height */
@@ -436,12 +436,12 @@ span.text-content {
 }
 
 .form elements{
-    display: inline block;
+    display: inline-block;
     margin-left: 5em;
 
 }
 .search{
-    width:40;
+    width:40px;
 
 }
 /*
