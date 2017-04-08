@@ -1,61 +1,60 @@
+
+
+//when login screen on other page options shouldnt work
+
 var base_url='http://localhost:8080';
 state = {
   remember_me:false,
   login_value:false,
   currentDiv:'id06'
 
+
 };
 
 angular.module('mainApp',[]).controller('discover',function($http,$scope,$window,$location){
-  
+
+    $scope.loginLogout=function(){
+        if(state.login_value==false) {
+            $('#id25').show();
+        }
+        else{
+            state.remember_me=false;
+            state.login_value=false;
+            //state.token
+            $('#id07').text('login');
+
+        }
+    };
 
 
-  $scope.loginlogout=function(){
-      if(state.login_value==false)
-        document.getElementById('id01').style.display='block';
-      else{
-        state.remember_me=false;
-        state.login_value=false;
-        //state.token
-        $('#id07').text('login');
+    $scope.login=function(){
+        var username=$scope.uname;
+        var password=$scope.psw;
+        var url=base_url+'/user/auth';
+        if($scope.checkbox==true)
+            state.remember_me=true;
+        $.post(url,
+        {
+            username: username,
+            password: password
+        },
+            function(data, status){
+                if(data.status=="OK"){
+                    state.token=data.token;
+                    $('#id25').hide();
+                    state.login_value=true;
+                    if(state.remember_me==true)
+                        document.cookie=username+state.token;
+                    $('#id07').text('logout');
+                }
+                else
+                    alert('wrong username or password');
+        // document.getElementById('id03').innerHTML = "Wrong keyword entry";
+        //$('#id03').show();
+        });
+        //$('#id03').hide();
 
-      }
-  }
-
-
-  $scope.login=function(){
-    var username=$scope.uname;
-    var password=$scope.psw;
-    
-    var url=base_url+'/user/auth';
-    if($scope.checkbox==true)
-      state.remember_me=true;
-    $.post(url,
-    {
-        username: username,
-        password: password
-    },
-    function(data, status){
-        
-        if(data.status=="OK"){
-          state.token=data.token;
-          $('#id01').hide();
-          state.login_value=true;
-          if(state.remember_me==true)
-            document.cookie=username+state.token;
-          $('#id07').text('logout');
-
-
-
-       }
-       else
-        alert('wrong username or password');
-       // document.getElementById('id03').innerHTML = "Wrong keyword entry";
-       //$('#id03').show();
-    });
-    //$('#id03').hide();
-
-  };
+    };
 
   $scope.signup=function(){
     var username=$scope.sname;
@@ -93,12 +92,14 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
   };
 
   $scope.createforumform=function(){
+      document.getElementById('id21').style.display='none';
       if(state.login_value==true){
-      $('#id13').show();
+          $('#id13').show();
     }
     else{
-      
-   document.getElementById('id01').style.display='block';
+
+          $('#id25').show();
+          //document.getElementById('id01').style.display='block';
 
     }
    
@@ -106,6 +107,7 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
   };
 
   $scope.createforum=function(){
+
     var token=state.token;
     var title=$scope.title;
     var text=$scope.text;
@@ -118,7 +120,8 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
          text:text
       },
       function(data, status){
-      if(status=="success"){
+      if(status=="OK"){
+          console.log("success new forum");
         $('#id14').hide;
         $('#id16').show();
 
@@ -127,59 +130,68 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
   };
 
 
+    $scope.forum=function () {
+        if (state.currentDiv != 'id05') {
+            document.getElementById(state.currentDiv).style.display = 'none';
+            document.getElementById('id05').style.display = 'block';
+            state.currentDiv = 'id05';
+            var url = base_url + '/forum/all';
+            $.get(
+                url,
+                {},
+                function (data, status) {
+                    //var response=JSON.parse(JSON.stringify(data));
+                    var $ul = $('#id21')
+                    $.each(data.forum, function (idx, item) {
+                        var author_username = item.author_username;
+                        var body = item.body;
+                        var id = item.id;
+                        var title = item.title;
+                        $ul.append('<li>' + id+'</li>');
+                        $ul.append('<li style="color:red" >' + '<b>'+title+'</b>'+'</li>');
+                        $ul.append('<li>' + 'created by'+author_username+'</li>');
 
-    $scope.forum=function ()
+                        $ul.append('<li>' + body+'</li>');
+                        $ul.append('<br><br>')
 
-    {
-        document.getElementById(state.currentDiv).style.display='none';
-        document.getElementById('id05').style.display='block';
-        state.currentDiv='id05';
-        var  url=base_url+'/forum/all';
-        $.get(
-            url,
-            {},
-            function(data,status) {
-                //var response=JSON.parse(JSON.stringify(data));
-                var $ul = $('#id05')
-                $.each(data.forum, function(idx,item){
-                    var author_username=item.author_username;
-                   var body= item.body;
-                    var id=item.id;
-                    var title=item.title;
-                        $ul.append('<li style="color:red">'+author_username+' '+body+' '+id+' '+title+'</li>');
                     })
+                });
 
-            });
+
+        }
+        ;
+    }
+    $scope.explore=function () {
+
+
+        document.getElementById(state.currentDiv).style.display='none';
+        document.getElementById('id04').style.display='block';
+        state.currentDiv='id04';
 
 
     };
 
+    $scope.home=function(){
+
+        document.getElementById(state.currentDiv).style.display='none';
+        document.getElementById('id06').style.display='block';
+        state.currentDiv='id06';
+
+
+    };
+
+    $scope.signUpForm=function(){
+        document.getElementById('id25').style.display='none';
+        document.getElementById('id10').style.display='block';
+    };
+
 });
 
-function explore(){
-   document.getElementById(state.currentDiv).style.display='none';
-    document.getElementById('id04').style.display='block';  
-     state.currentDiv='id04';
-
-
-}
 
 
 
 
-function home(){
 
-   document.getElementById(state.currentDiv).style.display='none';
-    document.getElementById('id06').style.display='block';  
-     state.currentDiv='id06';
-
-
-}
-
-function signUpForm(){
-  document.getElementById('id01').style.display='none';
-  document.getElementById('id10').style.display='block';
-}
 
 
 /*angular.module('mainApp').directive('ng-enter', function () {
