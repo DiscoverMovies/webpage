@@ -2,227 +2,217 @@
 <html>
 <head>
 
-  <link rel="stylesheet" href = "styles.css"/>
-  <title>DISCOVER MOVIES</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-  <script src="dynamic.js"></script>
-  <script type="text/javascript"> src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"</script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href = "styles.css"/>
+    <title>DISCOVER MOVIES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="dynamic.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 <body ng-app="mainApp" class="ng-scope">
-  <div class="all" ng-controller="discover">
-    <div id="posi">
-      <div class="my-container">
-        <div class="search-form" >
-          <div class="ins" >
-            <h1> 
-            <font face="Comic Sans MS" size="6" style="font-size: 1.5em;">Discover Movies </font>
-            </h1> 
+    <div class="all" ng-controller="discover">
+        <div id="posi">
 <!--------------------------------------------------main page search login---------------------------------------------------------------------------------------->
-            <form id="par" class="ng-pristine ng-invalid ng-invalid-reqired">
-              <input type="text" name="search" placeholder="Search..">
-              <!--  <button type="button" onclick="alert('Sign in!')">Sign in</button>    -->
-              <button id="id07" ng-click="loginlogout()"  ng-model="loginlogoutmodel" style="width:auto;">Login</button>
-
+            <div class="ins" >
+                <h1>
+                    <font face="Comic Sans MS" size="6" style="font-size: 1.5em;">Discover Movies </font>
+                </h1>
+                <form id="par" class="ng-pristine ng-invalid ng-invalid-reqired">
+                    <div>
+                        <input type="text" name="search" placeholder="Search..">
+                        <!--  <button type="button" onclick="alert('Sign in!')">Sign in</button>-->
+                        <button id="id07" data-ng-click="loginLogout()" ng-model="loginLogoutModel" style="width:auto;">login</button>
+                    </div>
+                    <div class="dis">
+                        <div class="luk">
+                            <ul id ="unb">
+                                <li data-ng-click="home()" data-ng-model="homeModel">HOME</li></a>
+                                <li  data-ng-click="explore()" data-ng-model="exploreModel" class="ng-pristine ng-untouched ng-valid ng-empty">EXPLORE</li></a>
+                                <li data-ng-click="forum()" data-ng-model="forums">FORUMS</li> </a>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br>
 <!--------------------------------------------login page-------------------------------------------------------------------------------------------------------->
-              <div id="id01" class="modal" ng-model ="modal" style="display: none;" >
-                <!-- <form class="modal-content animate" action="/action_page.php"> -->
-                <div class="imgcontainer">
-                  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                  <img src="sid.jpg" alt="Avatar" class="avatar">
-                </div>
-                <div class="container1 ng-scope">
-                   <!--<div id="id03"></div>-->
-                   <!--<p class="incorrect" id="id03" style="display:none;"> incorrect user name or password</p>-->
-                  <label><b>Username</b></label>
-                  <input type="text" placeholder="Enter Username" name="uname" ng-model="uname" required>
-                  <label><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" ng-model="psw" required>
-                  <button type="submit" ng-model="submit" ng-click="login()" class="ng-pristine ng-untouched ng-valid ng-empty">Login</button>
-                  <input type="checkbox" ng-checked="false" ng-model="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty"> Remember me
-                </div>
-                <div class="container1" style="background-color:#f1f1f1">
-                  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                  <button type="button" onclick="signUpForm()" class="sign-up">sign up</button>
-                  <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-              </div>
-<!---------------------------------------------------------------------------------end login-------------------------------------------------------------------->
-            </form>
-          </div>
-        </div>
-      </div>
-<!---------------------------------------------------------------navigation menu------------------------------------------------------------------------------>
-      <div class="dis">
-        <div class="luk">
-          <ul id ="unb">
-            <li onclick="home()">HOME</li></a>
-            <li ng-model="navExplore" onclick="explore()" class="ng-pristine ng-untouched ng-valid ng-empty">EXPLORE</li></a>
-            <li ng-click="forum()" ng-model="forums">FORUMS</li> </a>
-          </ul>
-        </div>
-      </div>
-<!------------------------------------------------------------------navigation end---------------------------------------------------------------------------->
+        <div id="id25" class="modal ng-pristine ng-untouched ng-valid ng-empty animate" ng-model="modals" style="display: none" >
 
-    </div>
-    <br><br><br><br><br><br><br><br>
+       <!-- <form class="modal-content animate" >-->
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id25').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="sid.jpg" alt="Avatar" class="avatar">
+            </div>
+            <div class="container ng-scope">
+            <!--<div id="id03"></div>-->
+            <p class="incorrect" id="id03" style="display:none;"> incorrect user name or password</p>
+                <label><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" ng-model="uname" required>
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" ng-model="psw" required>
+                <button type="submit" ng-model="submit" ng-click="login()" class="ng-pristine ng-untouched ng-valid ng-empty">Login</button>
+                <input type="checkbox" ng-checked="false" ng-model="checkbox" class="ng-pristine ng-untouched ng-valid ng-empty"> Remember me
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id25').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="button" ng-click="signUpForm()" class="sign-up" ng-model="signUpButton">sign up</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+
+
+        </div>
+
 <!-------------------------------------------------------------------home page-------------------------------------------------------------------------------->
-    <div id="id06" class="home ng-pristine ng-untouched ng-valid ng-empty" ng-model="homeDiv" style="display: block;">
-      <h2>
-        Recommendations
-      </h2>
-      <ul class="img-list">
-        <li>
-          <a>
-            <img src="i.jpg" width="300" height="300" />
-            <span class="text-content"><span>Harry Potter</span></span>
-          </a>
-        </li>
-      </ul>
-      <br><br><br><br><br><br>
-      <h2>
-      Trending
-      </h2>
-      <ul class="img-list">
-        <li>
-          <a>
-            <img src="im.jpg" width="300" height="300" />
-            <span class="text-content"><span>Place Name</span></span>
-          </a>
-        </li>
-      </ul>
-      <br><br><br><br><br><br>
-      <h2>
-      New arrivals
-      </h2>
-      <ul class="img-list">
-        <li>
-          <a>
-            <img src="hi.jpg" width="300" height="300" />
-            <span class="text-content"><span>Place Name</span></span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  <!--------------------------------------------------------------------Explore page---------------------------------------------------------------------->
-    <div id="id04" class="explore ng-pristine ng-untouched ng-valid ng-empty" ng-model="exploreDiv" style="display: none;">
-      <h2> Comedy</h2>
-      <ul class="img-list">
-        <li>
-          <a>
-            <img src="t1.jpg" width="300" height="300" />
-            <span class="text-content"><span>Beuty and the beast</span></span>
-          </a>
-        </li>
-      </ul>
-      <br><br><br><br><br><br>
-      <h2>
-      Triller
-      </h2>
-      <ul class="img-list">
-        <li>
-          <a>
-            <img src="t2.jpg" width="300" height="300" />
-            <span class="text-content"><span>Place Name</span></span>
-          </a>
-        </li>
-      </ul>
-      <br><br><br><br><br><br>
-      <h2>
-        Horror
-      </h2>
-      <ul class="img-list">
-        <li>
-          <a>
-            <img src="t3.jpg" width="300" height="300" />
-            <span class="text-content"><span>Place Name</span></span>
-          </a>
-        </li>
-      </ul>
-    </div>
- <!------------------------------------------------------------------------------forum page------------------------------------------------------------------>
-    <div id="id05" class="forum ng-pristine ng-untouched ng-valid ng-empty" ng-model="forumDiv" style="display: none;">
-      <div class="form elements">
-        <div class="textSearch" style="display: block" id="id20" ng-model="searchText">
-          <input  type="text"  name="search" placeholder="search" ng-model="searchforums" ng-enter="searchforum">
-          <button type="button" ng-click="createforumform()" ng-model="makeForum">Create new forum</button>
+        <div id="id06" class="home ng-pristine ng-untouched ng-valid ng-empty" ng-model="homeDiv" style="display: block;">
+            <h2>
+                Recommendations
+            </h2>
+            <ul class="img-list">
+                <li>
+                    <a>
+                    <img src="i.jpg" width="300" height="300" />
+                    <span class="text-content"><span>Harry Potter</span></span>
+                    </a>
+                </li>
+            </ul>
+            <br><br><br><br><br><br>
+            <h2>
+                Trending
+            </h2>
+            <ul class="img-list">
+                <li>
+                    <a>
+                        <img src="im.jpg" width="300" height="300" />
+                        <span class="text-content"><span>Place Name</span></span>
+                     </a>
+                </li>
+            </ul>
+            <br><br><br><br><br><br>
+            <h2>
+                New arrivals
+            </h2>
+            <ul class="img-list">
+                <li>
+                    <a>
+                        <img src="hi.jpg" width="300" height="300" />
+                        <span class="text-content"><span>Place Name</span></span>
+                     </a>
+                </li>
+            </ul>
         </div>
-          <div class="allforum" id="id21">
-          </div>
-          <!-------------------------------------create forum------------------------------------------------------------------------------------------>
-        <div id="id13" class="forum_create" ng-model="createforums" style="display: none;">
-            <form class="createForumClass">
-          <label>title</label>
-          <input type="text" name="title" ng-model="title" required>
-          <label>topic</label>
-          <input type="text" name="text" ng-model="text" required>
-          <button type="button" ng-model="create" ng-click="createforum()"  >create</button>
+      <!--------------------------------------------------------------------Explore page---------------------------------------------------------------------->
+        <div id="id04" class="explore ng-pristine ng-untouched ng-valid ng-empty" ng-model="exploreDiv" style="display: none;">
+            <h2>
+                Comedy
+            </h2>
+            <ul class="img-list">
+                <li>
+                    <a>
+                        <img src="t1.jpg" width="300" height="300" />
+                        <span class="text-content"><span>Beuty and the beast</span></span>
+                    </a>
+                </li>
+            </ul>
+            <br><br><br><br><br><br>
+            <h2>
+                Triller
+            </h2>
+            <ul class="img-list">
+                <li>
+                        <a>
+                        <img src="t2.jpg" width="300" height="300" />
+                        <span class="text-content"><span>Place Name</span></span>
+                    </a>
+                </li>
+            </ul>
+            <br><br><br><br><br><br>
+            <h2>
+                Horror
+            </h2>
+            <ul class="img-list">
+                <li>
+                    <a>
+                        <img src="t3.jpg" width="300" height="300" />
+                        <span class="text-content"><span>Place Name</span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+     <!------------------------------------------------------------------------------forum page------------------------------------------------------------------>
+        <div id="id05" class="forum ng-pristine ng-untouched ng-valid ng-empty" ng-model="forumDiv" style="display: none;">
+            <div class="form elements">
+                <div class="textSearch" style="display: block" id="id20" ng-model="searchText">
+                    <input  type="text"  id="id27" name="search" placeholder="search" ng-model="searchforums" ng-keypress="searchForum()" ng-keydown="searchForum()">
+                  
+                    <button type="button" ng-click="createforumform()" ng-model="makeForum">Create new forum</button>
+                </div>
+            <div class="divforumsearch" id="id26">
+            </div>
+                <div class="allforum" id="id21">
+                </div>
+                    <!-------------------------------------create forum------------------------------------------------------------------------------------------>
+                <div id="id13" class="forum_create" ng-model="createforums" style="display: none;">
+                    <form class="createForumClass">
+                        <label>title</label>
+                        <input type="text" name="title" ng-model="title" required>
+                        <label>text</label>
+                        <input type="text" name="text" ng-model="text" required>
+                        <button type="button" ng-model="create" ng-click="createforum()"  >create</button>
+                    </form>
+                </div>
+            </div>
+         <!----------------------------------------------------------------------------end forum create-------------------------------------------------->
+        </div>
+    <!-----------------------------------------------sign up form------------------------------------------------------------------------------------------------>
+        <div id="id10" class="signup-form">
+            <span onclick="document.getElementById('id10').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="signup-content animate" >
+                <div class="container">
+                    <div>
+                        <label><b>Username</b></label>
+                        <input type="text" placeholder="Username" name="sname" ng-model="sname" required>
+                    </div>
+                    <div>
+                        <label><b>Email</b></label>
+                        <input type="text" placeholder="Email" name="semail" ng-model="semail" required>
+                    </div>
+                    <div>
+                        <label><b>Phone</b></label>
+                        <input type="text" placeholder="Phone no" name="sphone" ng-model="sphone" required>
+                    </div>
+                    <div>
+                        <p class="password-unmatch" id="id11" style="display: none;"> password do not match </p>
+                        <label><b>Password</b></label>
+                        <input type="password" placeholder="Password" name="spassword"  ng-model="spassword" required>
+                    </div>
+                    <div>
+                        <label><b>Repeat Password</b></label>
+                        <input type="password" placeholder="Repeat Password" name="srpassword" ng-model="srpassword" required>
+                    </div>
+                        <input type="checkbox" ng-model="checkbox1" ng-checked="false"> Remember me
+                        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                    <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('id10').style.display='none'" class="cancelbtn">Cancel</button>
+                        <button type="button"  ng-model="signUp" ng-click="signup()" class="signupbtn">Sign Up</button>
+                    </div>
+                </div>
             </form>
         </div>
-     <!----------------------------------------------------------------------------end forum create-------------------------------------------------->
-      </div>
-      <div id="id16" ng-model="showForumDetails" style="display: none" >
-        <div>
-          {{title}}
-          {{text}}
-        </div>
-      </div>
     </div>
-<!-----------------------------------------------sign up form------------------------------------------------------------------------------------------------>
-    <div id="id10" class="signup-form">
-      <span onclick="document.getElementById('id10').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <form class="signup-content animate" >
-        <div class="container">
-          <div>
-            <label><b>Username</b></label>
-            <input type="text" placeholder="Username" name="sname" ng-model="sname" required>
-          </div>
-          <div>
-            <label><b>Email</b></label>
-            <input type="text" placeholder="Email" name="semail" ng-model="semail" required>
-          </div>
-          <div>
-            <label><b>Phone</b></label>
-            <input type="text" placeholder="Phone no" name="sphone" ng-model="sphone" required>
-          </div>
-          <div>
-            <p class="password-unmatch" id="id11" style="display: none;"> password do not match </p>
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Password" name="spassword"  ng-model="spassword" required>
-          </div>
-          <div>
-            <label><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="srpassword" ng-model="srpassword" required>
-          </div>
-          <input type="checkbox" ng-model="checkbox1" ng-checked="false"> Remember me
-          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-          <div class="clearfix">
-            <button type="button" onclick="document.getElementById('id10').style.display='none'" class="cancelbtn">Cancel</button>
-            <button type="button"  ng-model="signUp" ng-click="signup()" class="signupbtn">Sign Up</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    
-<!------------------------------------------------------javascript-------------------------------------------------------------------------------------->
 
-            <script>
-            // Get the modal
-            var modal = document.getElementById('id01');
+    <!------------------------------------------------------javascript-------------------------------------------------------------------------------------->
 
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
+               <!--<script>
+                // Get the modal
+                var modal = document.getElementById('id01');
+
+                // When the user clicks anywhere outside of the modal, close it
+               window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
                 }
-            }
-            </script>
-  </div> 
-</body>
-</html>
-
-
-
-
+                </script> */   -->                                    

@@ -1,10 +1,12 @@
 
-@charset "UTF-8";
+
+
 body
 {
     margin:0;
 }
 .all{
+    position: relative;
     background-color:white;
     background-repeat:no-repeat;
     min-height:900px;
@@ -12,24 +14,24 @@ body
 }
 .dis li
 {
-font-size:20px;
-border:1px;
-transition: .35s ease-in;
-color: #eeeeee;
-font-family: cursive;
+    font-size:20px;
+    border:1px;
+    transition: .35s ease-in;
+    color: #eeeeee;
+    font-family: cursive;
 }
 .dis li:hover{
     background: lightcoral;
 }
-h1{     
-        color:  #c01730;
-        margin-top: .5%;
-        display: inline;
-        font-size: 1.4em;
-        float: left;
-        padding-top: .8em;
-        padding-right: 2em;
-}	
+h1{
+    color:  #c01730;
+    margin-top: .5%;
+    display: inline;
+    font-size: 1.4em;
+    float: left;
+    padding-top: .8em;
+    padding-right: 2em;
+}
 .next{
     text-align: right;
     margin-right: 2%;
@@ -45,7 +47,7 @@ ul#log li{
 ul#log img{
     width: 20px;
 }
-		
+
 ul#unb li	{
     display:inline;
     padding: 1%;
@@ -72,12 +74,12 @@ h2{
 
 #posi
 {
-  position: fixed;
-  top:0;
-  right:0;
-  left:0;
-  z-index: 999;
-  background-color: white;
+    position: fixed;
+    top:0;
+    right:0;
+    left:0;
+    z-index: 999;
+    background-color: white;
 }
 /*
     font-family: sans;
@@ -95,21 +97,21 @@ h2{
 }*/
 #par{
     padding-left: 2em;
-        padding: 1.4em;
+    padding: 1.4em;
 }
 b{
-        font-size:30px;
-		padding-left:20px;
-		padding-right:20px;
-		padding-top:10px;
-		padding-bottom:10px;
-		border:2px  #c01730;
-		border-radius:50em;
+    font-size:30px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:2px  #c01730;
+    border-radius:50em;
 }
 .b{
     display: block;
     text-align: center;
-    
+
 }
 .my-container
 {
@@ -121,8 +123,8 @@ b{
     overflow: visible;
     padding-top:.5px;
     background-color:  #c01730;
-   /* position: absolute;
-*/
+    /* position: absolute;
+ */
 }
 
 input[type=text], input[type=password]  {
@@ -134,7 +136,7 @@ input[type=text], input[type=password]  {
     font-size: 16px;
     background-color: white;
     background-image: url('searchicon.png');
-    background-position: 10px 10px; 
+    background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
@@ -144,26 +146,32 @@ input[type=text], input[type=password]  {
 /*input[type=text]:focus {
     width: 100%;
 }*/
-
+button
+{   margin-left: 2em;
+    margin-top: 10px;
+    padding: .9em;
+    font-style: italic;
+    border-radius: 5px;
+}
 
 .search-form{
-   margin-left: 1em;
-    }|
+    margin-left: 1em;
+}|
 
     input [type=text],input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+     width: 100%;
+     padding: 12px 20px;
+     margin: 8px 0;
+     display: inline-block;
+     border: 1px solid #ccc;
+     box-sizing: border-box;
+ }
 
 /* Set a style for all buttons */
 button {
     background-color: #4CAF50;
     color: white;
-   padding: 14px 20px;
+    padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
@@ -195,7 +203,7 @@ button:hover {
 }
 
 img.avatar {
-    width: 40%;
+    width: 30%;
     border-radius: 50%;
 }
 
@@ -211,16 +219,17 @@ span.psw {
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left:400em;
-    top: 0;
-    width: 50%; /* Full width */
-    height: 100%; /* Full height */
+    position: absolute; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left:30%;
+    top:5%;
+    width: 35%; /* Full width */
+    height: 80%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-  /*  background-color: rgb(0,0,0); /* Fallback color */
-    /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-   /* padding-top: 60px;*/
+    /*background-color: rgb(0,0,0);*/
+    background-color: rgba(0,0,0,0.9);
+
+     padding-top: 60px;
     background-color: white;
 }
 
@@ -255,35 +264,35 @@ span.psw {
 }
 
 @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
+    from {-webkit-transform: scale(0)}
     to {-webkit-transform: scale(1)}
 }
-    
+
 @keyframes animatezoom {
-    from {transform: scale(0)} 
+    from {transform: scale(0)}
     to {transform: scale(1)}
 }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
     span.psw {
-       display: block;
-       float: none;
+        display: block;
+        float: none;
     }
     .cancelbtn {
-       width: 100%;
+        width: 100%;
     }
 }
 
-.incorrect{
+p.incorrect{
     display:none;
     color:red;
 }
-.password-unmatch{
+p.password-unmatch{
     display:none;
     color:red;
 }
-
+/*}*/
 
 .forum{
     display: none;
@@ -306,35 +315,35 @@ span.psw {
 
 /*  text on hover     */
 ul.img-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 ul.img-list li {
-  display: inline-block;
-  height: 300px;
-  margin: 0 1em 1em 0;
-  position: relative;
-  width: 300px;
+    display: inline-block;
+    height: 300px;
+    margin: 0 1em 1em 0;
+    position: relative;
+    width: 300px;
 }
 span.text-content {
-  background: rgba(0,0,0,0.5);
-  color: white;
-  cursor: pointer;
-  display: table;
-  height: 300px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 300px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    cursor: pointer;
+    display: table;
+    height: 300px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 300px;
 }
 
 span.text-content span {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }
 
 /*
@@ -352,31 +361,31 @@ span.text-content {
 }*/
 
 ul.img-list li:hover span.text-content {
-  opacity: 1;
+    opacity: 1;
 }
 
 
 span.text-content {
-  background: rgba(0,0,0,0.5);
-  color: white;
-  cursor: pointer;
-  display: table;
-  height: 300px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 300px;
-  opacity: 0;
-  -webkit-transition: opacity 500ms;
-  -moz-transition: opacity 500ms;
-  -o-transition: opacity 500ms;
-  transition: opacity 500ms;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    cursor: pointer;
+    display: table;
+    height: 300px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 300px;
+    opacity: 0;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
 }
- span {
-              /*  text-decoration:underline;
-                color:blue;*/
-                cursor:pointer;
-            }
+span {
+    /*  text-decoration:underline;
+      color:blue;*/
+    cursor:pointer;
+}
 
 
 
@@ -445,9 +454,10 @@ span.text-content {
 
 }
 /*
-#formelements input [type=text],input[type=password] 
+#formelements input [type=text],input[type=password]
 {
     margin-left: 5em;
 } */
-
-
+.ins{
+    z-index: 1;
+}

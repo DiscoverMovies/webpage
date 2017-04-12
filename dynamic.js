@@ -187,6 +187,35 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
         document.getElementById('id25').style.display='none';
         document.getElementById('id10').style.display='block';
     };
+    $scope.searchForum=function () {
+        var url=base_url+'/forum/search';
+        var searchforums=$scope.searchforums;
+        $.get(url,
+            {
+                q:searchforums
+            },
+            function(data, status){
+                $(".divforumsearch").empty();
+                if(data.status=="OK"){
+
+                    var $ul = $('#id26');
+                    data.forums.forEach( function (v,k) {
+                        $ul.append('<li>' + v.title+'</li>');
+                        $ul.append('<li>' + v.author_username + '</li>');
+                        $ul.append('<li>' + v.body + '</li>');
+                        $ul.append('<li>' + v.id + '</li>');
+                        $('#id26').show;
+                        $( "#id27" ).autocomplete({
+                            source: v.title
+                        });
+
+                    })
+
+                    //console.log(data.forums.author_username);
+                }
+            });
+
+    };
 
 });
 
