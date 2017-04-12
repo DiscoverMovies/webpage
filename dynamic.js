@@ -114,16 +114,19 @@ angular.module('mainApp',[]).controller('discover',function($http,$scope,$window
     var url=base_url+'/forum/create';
     $.post(url,
         {
-         
+            title:title,
          token:token,
-         title:title,
+
          text:text
       },
       function(data, status){
-      if(status=="OK"){
-          console.log("success new forum");
-        $('#id14').hide;
-        $('#id16').show();
+      if(data.status=="OK"){
+          document.getElementById('id13').style.display='none';
+        //$('#id13').hide;
+          document.getElementById('id21').style.display='none';
+          var $ul = $('#id05')
+          $ul.append('<li>' + title+'</li>');
+          $ul.append('<li>' + text+'</li>');
 
       }
       });
